@@ -20,14 +20,17 @@
     padding: 10px;
     margin-top: 0px;
     position: fixed;
-  top: 0;
-  width: 100%;
+    top: 0;
+    width: 100%;
 }
 
 .searchbar__prompt {
     text-align: center;
     padding: 10px;
     margin-top: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 hr {
@@ -36,7 +39,6 @@ hr {
 
 .results {
     background-color: aliceblue;
-    
 }
 
 .results__grid {
@@ -62,8 +64,8 @@ hr {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 40px;
+    height: 40px;
     animation: spin 2s linear infinite;
   }
   

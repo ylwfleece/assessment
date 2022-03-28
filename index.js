@@ -24,12 +24,12 @@ function render(element, template) {
 function renderLoader() {
     console.log('rendering loader')
     let prompt = document.querySelector('.searchbar__prompt')
-    prompt.innerHTML = '<div class=`loader1`></div>';
+    prompt.innerHTML = `<div class='loader'></div>`;
 }
 
 function renderResultsText(count) {
     let prompt = document.querySelector('.searchbar__prompt')
-    prompt.innerHTML = `<p>${count} results</p>`;
+    prompt.innerHTML = `<h1>${count} results</h1>`;
 }
 
 function getResults(searchTerm) {
@@ -39,8 +39,6 @@ function getResults(searchTerm) {
 
 function displayResults(searchTerm) {
     getResults(searchTerm).then(results => {
-        renderLoader();
-        console.log(results);
         renderResultsGrid(results);
     });
 }
@@ -50,7 +48,8 @@ function initSearchBar() {
     let submit = document.querySelector('.searchbar__nav__submit');
     submit.addEventListener('click', (e) => {
         if (input.value) {
-            console.log(input.value)
+            console.log(input.value);
+            renderLoader();
             displayResults(input.value);
         } else {
             alert('must input valid search term')
