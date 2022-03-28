@@ -34,6 +34,15 @@ function displayResults() {
 
 function initSearchBar() {
     let input = document.querySelector('.searchbar__nav__input');
-    let submit = document.querySelector('.searchbar__nav__submit')
+    let submit = document.querySelector('.searchbar__nav__submit');
+    submit.addEventListener('click', (e) => {
+        if (input.value) {
+            getResults(input.value);
+        } else {
+            alert('must input valid search term')
+        }
+    })
 }
+
+initSearchBar();
 
