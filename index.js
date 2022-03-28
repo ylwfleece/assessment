@@ -3,10 +3,10 @@ function generateResultCard(result) {
         <img class="results__grid__card__cover" src=${result.artworkUrl100}>
         <span  class="results__grid__card__title" >${result.collectionName}</span>
     </li>`
-
 }
 
-function generateResultsGrid(results) {
+function generateResultsGrid(searchResults) {
+    let results = searchResults.results;
     return results.map(result => generateResultCard(result)).join('');
 }
 
@@ -21,9 +21,8 @@ function render(element, template) {
 }
 
 function getResults(searchTerm) {
-    fetch(`https://itunes.apple.com/search?term=${searchTerm}&media=music&entity=album&attribute=artistTerm&limit=200`)
+    return fetch(`https://itunes.apple.com/search?term=${searchTerm}&media=music&entity=album&attribute=artistTerm&limit=200`)
         .then(res => res.json())
-        .then(json => console.log(json))
 }
 
 function displayResults() {
@@ -37,7 +36,7 @@ function initSearchBar() {
     let submit = document.querySelector('.searchbar__nav__submit');
     submit.addEventListener('click', (e) => {
         if (input.value) {
-            getResults(input.value);
+            displayResults(input.value);
         } else {
             alert('must input valid search term')
         }
@@ -45,4 +44,6 @@ function initSearchBar() {
 }
 
 initSearchBar();
+
+
 
