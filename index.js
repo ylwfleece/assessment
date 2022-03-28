@@ -1,8 +1,8 @@
 function generateResultCard(result) {
-    return `<div id="todo-${result.id}" class="results__grid__card">
+    return `<div id="result-${result.id}" class="results__grid__card">
         <img class="results__grid__card__cover" src=${result.artworkUrl100}>
         <span  class="results__grid__card__title" >${result.collectionName}</span>
-    </li>`
+    </div>`
 }
 
 function generateResultsGrid(searchResults) {
@@ -25,8 +25,9 @@ function getResults(searchTerm) {
         .then(res => res.json())
 }
 
-function displayResults() {
-    getResults().then(results => {
+function displayResults(searchTerm) {
+    getResults(searchTerm).then(results => {
+        console.log(results)
         renderResultsGrid(results);
     })
 }
@@ -36,6 +37,7 @@ function initSearchBar() {
     let submit = document.querySelector('.searchbar__nav__submit');
     submit.addEventListener('click', (e) => {
         if (input.value) {
+            console.log(input.value)
             displayResults(input.value);
         } else {
             alert('must input valid search term')

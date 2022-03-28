@@ -8,7 +8,7 @@
 .searchbar {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 100px;
 }
 
 .searchbar__nav {
@@ -31,19 +31,21 @@ hr {
 
 .results {
     background-color: aliceblue;
-    display: flex;
-    flex-direction: row;
+    
 }
 
 .results__grid {
     display: grid;
     grid-template-columns: 15% 15% 15% 15% 15%;
+    grid-template-rows: 170px;
     padding: 10px;      
 }
 
 .results__grid__card {
     display: flex;
     flex-direction: column;
+    margin: auto;
+    height: 170px;
 }
 
 @media screen and (max-width: 400px) {
