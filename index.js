@@ -5,14 +5,14 @@ function generateResultCard(result) {
     </div>`
 }
 
-function generateResultsGrid(searchResults) {
+function generateResultsGrid(searchResults, searchTerm) {
     let results = searchResults.results;
-    renderResultsText(results.length);
+    renderResultsText(results.length, searchTerm);
     return results.map(result => generateResultCard(result)).join('');
 }
 
-function renderResultsGrid(results) {
-    const tmp = generateResultsGrid(results);
+function renderResultsGrid(results, searchTerm) {
+    const tmp = generateResultsGrid(results, searchTerm);
     const ele = document.querySelector('.results__grid');
     render(ele, tmp);
 }
@@ -27,9 +27,9 @@ function renderLoader() {
     prompt.innerHTML = `<div class='loader'></div>`;
 }
 
-function renderResultsText(count) {
+function renderResultsText(count, searchTerm) {
     let prompt = document.querySelector('.searchbar__prompt')
-    prompt.innerHTML = `<h1>${count} results</h1>`;
+    prompt.innerHTML = `<h1>${count} results for '${searchTerm}'</h1>`;
 }
 
 function getResults(searchTerm) {
@@ -39,7 +39,7 @@ function getResults(searchTerm) {
 
 function displayResults(searchTerm) {
     getResults(searchTerm).then(results => {
-        renderResultsGrid(results);
+        renderResultsGrid(results, searchTerm);
     });
 }
 
