@@ -77,7 +77,17 @@ hr {
 }
 
 
-@media screen and (max-width: 600px) {
+
+  @media screen and (max-width: 800px) {
+    .results__grid {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 170px;
+        padding: 10px;      
+    }
+  }
+
+  @media screen and (max-width: 600px) {
     .results__grid {
         display: grid;
         grid-template-columns: 33% 33% 33%;
