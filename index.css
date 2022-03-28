@@ -53,8 +53,8 @@ hr {
     display: flex;
     flex-direction: column;
     margin: auto;
-    height: 170px;
-    width: 170px;
+    height: 200px;
+    width: 200px;
 }
 
 .results__grid__card__cover {
@@ -77,8 +77,7 @@ hr {
 }
 
 
-
-  @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
     .results__grid {
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
@@ -87,7 +86,7 @@ hr {
     }
   }
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .results__grid {
         display: grid;
         grid-template-columns: 33% 33% 33%;
