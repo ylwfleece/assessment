@@ -1,7 +1,7 @@
 function generateResultCard(result) {
     return `<div id="result-${result.id}" class="results__grid__card">
         <img class="results__grid__card__cover" src=${result.artworkUrl100}>
-        <span  class="results__grid__card__title" >${result.collectionName}</span>
+        <span class="results__grid__card__title">${result.collectionName}</span>
     </div>`
 }
 
@@ -22,7 +22,6 @@ function render(element, template) {
 }
 
 function renderLoader() {
-    console.log('rendering loader')
     let prompt = document.querySelector('.searchbar__prompt')
     prompt.innerHTML = `<div class='loader'></div>`;
 }
@@ -48,11 +47,10 @@ function initSearchBar() {
     let submit = document.querySelector('.searchbar__nav__submit');
     submit.addEventListener('click', (e) => {
         if (input.value) {
-            console.log(input.value);
             renderLoader();
             displayResults(input.value);
         } else {
-            alert('must input valid search term')
+            alert('Must input valid search term')
         }
     })
     input.addEventListener("keyup", function(event) {
